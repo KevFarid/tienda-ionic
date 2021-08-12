@@ -1,8 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Productos
     </ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar animated [(ngModel)]="searchText" (ionChange)="search()" placeholder="Buscar producto"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
@@ -12,6 +15,15 @@
       <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
   </ion-header>
+  
+  <div style="display: flex; flex-wrap: wrap;">
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+    <app-product-card 
+      *ngFor="let item of productsList | filtro: searchText"
+      routerLink="/product/{{item.id}}"
+      [productInfo]="item"
+    >
+    </app-product-card>
+    
+  </div>
 </ion-content>

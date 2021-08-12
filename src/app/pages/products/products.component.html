@@ -1,0 +1,15 @@
+<ion-content>
+    <app-slide-product [imgs]="productInfo.imgSource"></app-slide-product>
+    <div class="content">
+        <ion-text color="medium">
+            <small>ID: {{productInfo.id}}</small>
+        </ion-text>
+        <ion-text color="danger">
+            <h4 >{{productInfo.precio}} {{productInfo.moneda}}</h4>
+        </ion-text>
+        <h2>{{productInfo.nombre}}</h2>
+        <small>Por {{productInfo.by}}</small>
+        <p>{{productInfo.desc}}</p>
+    </div>
+    <ion-button expand="full" color="danger" (click)="addCart(productInfo.id)">Añadir al carro</ion-button>
+</ion-content>

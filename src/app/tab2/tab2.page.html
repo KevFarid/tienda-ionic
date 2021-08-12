@@ -1,17 +1,18 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Carrito
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <div style="display: flex; flex-wrap: wrap;">
+    <ion-card *ngFor="let item of cardList"> 
+      <ion-card-content>
+        <app-product-card [productInfo]="item"></app-product-card>
+        <ion-button expand="full" color="danger" (click)="deleteCart(item.id)">Eliminar</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>
